@@ -32,7 +32,8 @@ class Controller {
     String text = controllerText.text;
     var replaceMultiplication = text.replaceAll("x", '*'); //mengganti x menjadi * di dlam string
     var replacePercent = replaceMultiplication.replaceAll("%", '/100'); //mengganti % menjadi /100 di dlam string
-    Expression expression = Parser().parse(replacePercent); //mengubah string menjadi expresi matematika menggunakna librari 
+    var replaceComa = replacePercent.replaceAll(",", '.'); //mengganti % menjadi /100 di dlam string
+    Expression expression = Parser().parse(replaceComa); //mengubah string menjadi expresi matematika menggunakna librari 
     
     // perhitungan menggunakan librari 
     ContextModel contextModel = ContextModel();

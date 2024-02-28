@@ -39,24 +39,29 @@ class _HomePageState extends State<HomePage> {
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 4, //jumlah kolom
                 childAspectRatio: 2.0,
+                mainAxisSpacing: 10.0,
               ),
               
               children: [
                 Button(
                   text: 'AC', 
                   onPressed: () => controller.clearButton(_controller),
+                  textColor: Colors.orange,
                 ),
                 Button(
                   text: 'C', 
                   onPressed: () => controller.deleteButton(_controller),
+                  textColor: Colors.orange,
                 ),
                 Button(
                   text: '%', 
                   onPressed: () => controller.actionButton(' % ', _controller),
+                  textColor: Colors.orange,
                 ),
                 Button(
                   text: '/', 
                   onPressed: () => controller.actionButton(' / ', _controller),
+                  textColor: Colors.orange,
                 ),
 
                 Button(
@@ -74,6 +79,7 @@ class _HomePageState extends State<HomePage> {
                 Button(
                   text: 'x', 
                   onPressed: () => controller.actionButton(' x ', _controller),
+                  textColor: Colors.orange,
                 ),
 
                 Button(
@@ -91,6 +97,7 @@ class _HomePageState extends State<HomePage> {
                 Button(
                   text: '-', 
                   onPressed: () => controller.actionButton(' - ', _controller),
+                  textColor: Colors.orange,
                 ),
 
                 Button(
@@ -108,6 +115,7 @@ class _HomePageState extends State<HomePage> {
                 Button(
                   text: '+', 
                   onPressed: () => controller.actionButton(' + ', _controller),
+                  textColor: Colors.orange,
                 ),
 
                 Button(
@@ -125,6 +133,8 @@ class _HomePageState extends State<HomePage> {
                 Button(
                   text: '=', 
                   onPressed: () => controller.hasil(_controller),
+                  color: Colors.orange,
+                  textColor: Colors.white,
                 ),
               ],
             ),
