@@ -2,10 +2,9 @@ import 'package:math_expressions/math_expressions.dart';
 
 class Controller {
   
-  void actionButton(String text,controllerText){
+  void actionButton(String text, controllerText){
     if (controllerText.text == '0' || controllerText.text == '0.0') {
       controllerText.text = text;
-
     } else {
       controllerText.text += text;
 
@@ -28,11 +27,12 @@ class Controller {
     }
   }
 
-  void hasil(controllerText){
+  void hasil(controllerText, subControllerText){
     String text = controllerText.text;
     var replaceMultiplication = text.replaceAll("x", '*'); //mengganti x menjadi * di dlam string
     var replacePercent = replaceMultiplication.replaceAll("%", '/100'); //mengganti % menjadi /100 di dlam string
-    Expression expression = Parser().parse(replacePercent); //mengubah string menjadi expresi matematika menggunakna librari 
+    var replaceComa = replacePercent.replaceAll(",", '.'); //mengganti % menjadi /100 di dlam string
+    Expression expression = Parser().parse(replaceComa); //mengubah string menjadi expresi matematika menggunakna librari 
     
     // perhitungan menggunakan librari 
     ContextModel contextModel = ContextModel();
@@ -44,5 +44,7 @@ class Controller {
     } else {
       controllerText.text = hasil.toInt().toString();
     }
+
+    subControllerText.text = text;
   }
 }
