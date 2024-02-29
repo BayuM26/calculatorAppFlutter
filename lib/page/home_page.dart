@@ -28,7 +28,7 @@ class _HomePageState extends State<HomePage> {
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(left: 10.0, right: 10.0),
+            padding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 80.0, bottom: 0.0),
             child: Input(
               controller: _subController, 
               text: '',
@@ -47,14 +47,14 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
 
-          const SizedBox(height: 5),
+          const SizedBox(height: 10),
 
-          const Divider(height: 20,),
+          const Divider(height: 10),
           Expanded(
             child:Align(
               alignment: Alignment.bottomCenter, //agar posisi berada di bawah
               child:Padding(
-                padding: const EdgeInsets.only(bottom: 30.0), //padding tombol di bawah
+                padding: const EdgeInsets.only(top: 0.0,bottom: 30.0), //padding tombol di bawah
 
                 // grid 
                 child: GridView(
