@@ -5,7 +5,7 @@ class Controller {
   void actionButton(String text, controllerText){
     if (controllerText.text == '0' || controllerText.text == '0.0') {
       controllerText.text = text;
-
+      
     } else {
       controllerText.text += text;
 
@@ -26,13 +26,26 @@ class Controller {
   }
 
   void hasil(controllerText, subControllerText){
+    String valuedenganoperatordiakhir;
     String text = controllerText.text;
-    var replaceMultiplication = text.replaceAll("x", '*'); //mengganti x menjadi * di dlam string
+    var cekoperator = text.substring(text.length - 3);
+
+    // cek jika user memasukan operator tanpa angka ke 2
+    if (cekoperator == ' + ' || cekoperator == ' - ' || cekoperator == ' x ' || cekoperator == ' / ') {
+      valuedenganoperatordiakhir = text.substring(0, text.length - 3);  
+    
+    } else {
+      valuedenganoperatordiakhir = text;
+    
+    }
+
+    var replaceMultiplication = valuedenganoperatordiakhir.replaceAll("x", '*'); //mengganti x menjadi * di dlam string
     var replacePercent = replaceMultiplication.replaceAll("%", '/100'); //mengganti % menjadi /100 di dlam string
     var replaceComa = replacePercent.replaceAll(",", '.'); //mengganti % menjadi /100 di dlam string
-    Expression expression = Parser().parse(replaceComa); //mengubah string menjadi expresi matematika menggunakna librari 
+
     
     // perhitungan menggunakan librari 
+    Expression expression = Parser().parse(replaceComa); //mengubah string menjadi expresi matematika menggunakna librari 
     ContextModel contextModel = ContextModel();
     double hasil = expression.evaluate(EvaluationType.REAL, contextModel);
 

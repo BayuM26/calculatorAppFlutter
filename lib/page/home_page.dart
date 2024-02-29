@@ -50,7 +50,6 @@ class _HomePageState extends State<HomePage> {
           const SizedBox(height: 5),
 
           const Divider(height: 20,),
-
           Expanded(
             child:Align(
               alignment: Alignment.bottomCenter, //agar posisi berada di bawah
