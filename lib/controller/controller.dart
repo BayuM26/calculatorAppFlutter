@@ -5,14 +5,16 @@ class Controller {
   void actionButton(String text, controllerText){
     if (controllerText.text == '0' || controllerText.text == '0.0') {
       controllerText.text = text;
+
     } else {
       controllerText.text += text;
 
     }
   }
 
-  void clearButton(controllerText){
+  void clearButton(controllerText, subControllerText){
     controllerText.clear();
+    subControllerText.clear();
     controllerText.text = '0';
   }
 
@@ -20,11 +22,7 @@ class Controller {
     String text = controllerText.text;
     var delete = text.substring(0, text.length-1);
 
-    if (delete.isEmpty) {
-      controllerText.text = '0';
-    } else {
-      controllerText.text = delete.toString();
-    }
+    controllerText.text = delete.isEmpty? '0' : delete.toString();
   }
 
   void hasil(controllerText, subControllerText){
@@ -39,12 +37,8 @@ class Controller {
     double hasil = expression.evaluate(EvaluationType.REAL, contextModel);
 
     // cek agar nilai yang di kembalikan tidak semuanya double
-    if (hasil > hasil.toInt()) {
-      controllerText.text = hasil.toString();
-    } else {
-      controllerText.text = hasil.toInt().toString();
-    }
-
+    controllerText.text = hasil > hasil.toInt()? hasil.toString() : hasil.toInt().toString();
+    
     subControllerText.text = text;
   }
 }

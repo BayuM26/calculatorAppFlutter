@@ -70,7 +70,7 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     Button(
                       text: 'AC', 
-                      onPressed: () => controller.clearButton(_controller),
+                      onPressed: () => controller.clearButton(_controller, _subController),
                       textColor: Colors.orange,
                     ),
                     Button(
